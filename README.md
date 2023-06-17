@@ -27,8 +27,8 @@ git clone https://github.com/KountourisPanagiotis/cf-campings-jax.git
 ```
 2. Open the project in your chosen Java IDE.
 3. Modify MySQL server details.
-4. Adjust windows environmental variables for `CAMPDB_USERNAME` and `CAMPDB_PASSWORD` in DBUtil method for database connection.
-5. Build the project and start the server.
+4. In DBUtil Class adjust windows environmental variables for `CAMPDB_USERNAME` and `CAMPDB_PASSWORD` for database connection. Also adjust the database url in same Class.
+5. Build the project and start the server. 
 
 ## Usage
 Once the server is operational, you can interact with the REST API endpoints through any HTTP client such as Postman or use the corresponding Angular framework [campings-frontend](https://github.com/KountourisPanagiotis/campings-frontend) that was build specifically for this backend.
