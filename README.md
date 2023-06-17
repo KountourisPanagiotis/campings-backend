@@ -27,7 +27,7 @@ git clone https://github.com/KountourisPanagiotis/cf-campings-jax.git
 ```
 2. Open the project in your chosen Java IDE.
 3. Modify MySQL server details.
-4. Adjust environmental variables.
+4. Adjust windows environmental variables for `CAMPDB_USERNAME` and `CAMPDB_PASSWORD` in DBUtil method for database connection.
 5. Build the project and start the server.
 
 ## Usage
