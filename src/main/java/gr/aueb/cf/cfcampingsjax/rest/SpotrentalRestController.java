@@ -1,0 +1,144 @@
+package gr.aueb.cf.cfcampingsjax.rest;
+
+import gr.aueb.cf.cfcampingsjax.dao.Interfaces.ISpotrentalsDAO;
+import gr.aueb.cf.cfcampingsjax.dao.implementations.SpotrentalDAOImpl;
+import gr.aueb.cf.cfcampingsjax.dto.SpotrentalDTO;
+import gr.aueb.cf.cfcampingsjax.service.implementations.SpotrentalServiceImpl;
+import gr.aueb.cf.cfcampingsjax.service.interfaces.ISpotrentalService;
+import io.swagger.v3.oas.annotations.Operation;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+@Path("/spotrental")
+public class SpotrentalRestController {
+
+    private final ISpotrentalService spotrentalService;
+
+    public SpotrentalRestController() {
+        ISpotrentalsDAO spotrentalsDAO = new SpotrentalDAOImpl();
+        this.spotrentalService = new SpotrentalServiceImpl(spotrentalsDAO);
+    }
+
+    @Path("/getByKeys")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Get spot rental by keys", tags = {"spotrentals"})
+    public Response getSpotRentalByPrimaryKeys(
+            @QueryParam("bookCode") int bookCode,
+            @QueryParam("campCode") String campCode,
+            @QueryParam("empNo") int empNo,
+            @QueryParam("startDt") String startDtStr) {
+
+        // Parse the startDt string to a Date object
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDt;
+        try {
+            startDt = formatter.parse(startDtStr);
+        } catch (ParseException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid start date format").build();
+        }
+
+        SpotrentalDTO spotRental = spotrentalService.getSpotRentalByKeys(bookCode, campCode, empNo, startDt);
+        if (spotRental == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        return Response.ok(spotRental).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Get all spot rentals", tags = {"spotrentals"})
+    public Response getAllSpotRentals() {
+        List<SpotrentalDTO> spotRentals = spotrentalService.getAllSpotRentals();
+        return Response.ok(spotRentals).build();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response insertSpotRental(SpotrentalDTO spotRentalDTO) {
+        try {
+            SpotrentalDTO createdSpotRental = spotrentalService.insertSpotRental(spotRentalDTO);
+            return Response.status(Response.Status.CREATED).entity(createdSpotRental).build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+    }
+
+    @Path("/{bookCode}/{campCode}/{empNo}/{startDt}")
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Update a spot rental by keys", tags = {"spotrentals"})
+    public Response updateSpotRental(
+            @PathParam("bookCode") int bookCode,
+            @PathParam("campCode") String campCode,
+            @PathParam("empNo") int empNo,
+            @PathParam("startDt") String startDtStr,
+            SpotrentalDTO spotRentalDTO) {
+
+        // Parse the startDt string to a Date object
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDt;
+
+        if (startDtStr != null && !startDtStr.isEmpty()) {
+            try {
+                startDt = formatter.parse(startDtStr);
+            } catch (ParseException e) {
+                return Response.status(Response.Status.BAD_REQUEST).entity("Invalid start date format").build();
+            }
+        } else {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Start date is null or empty").build();
+        }
+
+        try {
+            spotRentalDTO.setBookCode(bookCode);
+            spotRentalDTO.setCampCode(campCode);
+            spotRentalDTO.setEmpNo(empNo);
+            spotRentalDTO.setStartDt(startDt);
+            SpotrentalDTO updatedSpotRental = spotrentalService.updateSpotRental(spotRentalDTO);
+            if (updatedSpotRental == null) {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
+            return Response.ok(updatedSpotRental).build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+    }
+
+    @Path("/{bookCode}/{campCode}/{empNo}/{startDt}")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Delete a spot rental by keys", tags = {"spotrentals"})
+    public Response deleteSpotRental(
+            @PathParam("bookCode") int bookCode,
+            @PathParam("campCode") String campCode,
+            @PathParam("empNo") int empNo,
+            @PathParam("startDt") String startDtStr) {
+
+        // Parse the startDt string to a Date object
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDt;
+        try {
+            startDt = formatter.parse(startDtStr);
+        } catch (ParseException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid start date format").build();
+        }
+
+        try {
+            SpotrentalDTO deletedSpotRental = spotrentalService.deleteSpotRental(bookCode, campCode, empNo, startDt);
+            if (deletedSpotRental == null) {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
+            return Response.ok(deletedSpotRental).build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+    }
+}
