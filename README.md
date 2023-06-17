@@ -3,8 +3,7 @@
 A [Coding Factory](https://codingfactory.aueb.gr/) @ [AUEB](https://aueb.gr/) Java Final Project.
 
 ## Description
-This project is based on the database that was deeply analysed and implemented in [aueb-sql-final-project-database](https://github.com/KountourisPanagiotis/aueb-sql-final-project-database) as the final SQL Coding Factory Project.
-It provides a comprehensive backend for managing campsite data, with a local MySQL server serving as the data persistence layer. The frontend for this project can be found at [campings-frontend](https://github.com/KountourisPanagiotis/campings-frontend) repository.
+This project is based on the database requirements that can be found [here](https://drive.google.com/file/d/1_8gIdewyfhv6x67EeV9i8NTQllBPQgMl/view?usp=sharing). They were deeply analysed and implemented in [aueb-sql-final-project-database](https://github.com/KountourisPanagiotis/aueb-sql-final-project-database) as the final SQL *Coding Factory* Project. It provides a comprehensive backend for managing campsite data, with a local MySQL server serving as the data persistence layer. The Angular frontend for this project can be found at [campings-frontend](https://github.com/KountourisPanagiotis/campings-frontend) repository.
 
 ## Key Features
 - A RESTful API constructed with JAX-RS, enabling CRUD operations on campsite data.
