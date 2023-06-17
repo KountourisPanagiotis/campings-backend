@@ -12,6 +12,11 @@ It provides a comprehensive backend for managing campsite data, with a local MyS
 - Local MySQL server integration for data persistence and manipulation.
 - Deployment-ready for Apache Tomcat 9.0.72.
 
+<div align="center">
+  <h2>Database Diagram</h2>
+  <img src="https://github.com/KountourisPanagiotis/campings-backend/blob/main/src/main/resources/images/camping_eer_diagram.png?raw=true" alt="Database Diagram" width="700" height="500">
+</div>
+
 # Getting Started
 ## Prerequisites
 - JDK 11 or higher.
