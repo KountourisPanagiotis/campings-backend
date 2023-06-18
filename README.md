@@ -13,7 +13,7 @@ This project is based on the database requirements that can be found [here](http
 
 <div align="center">
   <h2>Database Diagram</h2>
-  <img src="https://github.com/KountourisPanagiotis/campings-backend/blob/main/src/main/resources/images/camping_eer_diagram.png?raw=true" alt="Database Diagram" width="700" height="500">
+  <img src="src/main/resources/images/camping_eer_diagram.png" alt="Database Diagram" width="700" height="500">
 </div>
 
 # Getting Started
