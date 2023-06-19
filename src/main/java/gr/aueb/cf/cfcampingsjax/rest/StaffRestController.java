@@ -10,7 +10,29 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+/**
+ *
+ * The StaffRestController class provides REST API endpoints for managing staff members.
+ * It allows retrieving, creating, updating, and deleting staff records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the IStaffService implementation to perform the necessary business logic.
+ *
+ * Base URL: /staff
+ *
+ * Example usage:
+ * GET /staff - Retrieves a list of all staff members.
+ * GET /staff/{staffNo} - Retrieves a specific staff member by their staff number.
+ * POST /staff - Creates a new staff member.
+ * PUT /staff/{staffNo} - Updates an existing staff member.
+ * DELETE /staff/{staffNo} - Deletes a staff member by their staff number.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see IStaffService
+ * @see StaffDTO
+ * @see Response
+ */
 @Path("/staff")
 public class StaffRestController {
 

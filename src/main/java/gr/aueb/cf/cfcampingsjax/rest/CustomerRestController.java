@@ -10,7 +10,28 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+/**
+ * The CustomerRestController class provides REST API endpoints for managing customers.
+ * It allows retrieving, creating, updating, and deleting customer records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the ICustomerService implementation to perform the necessary business logic.
+ *
+ * Base URL: /customer
+ *
+ * Example usage:
+ * GET /customer - Retrieves a list of all customers.
+ * GET /customer/{custCode} - Retrieves a specific customer by their customer code.
+ * POST /customer - Creates a new customer.
+ * PUT /customer/{custCode} - Updates an existing customer.
+ * DELETE /customer/{custCode} - Deletes a customer by their customer code.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see ICustomerService
+ * @see CustomerDTO
+ * @see Response
+ */
 @Path("/customer")
 public class CustomerRestController {
 

@@ -10,7 +10,28 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+/**
+ * The PaymentRestController class provides REST API endpoints for managing payments.
+ * It allows retrieving, creating, updating, and deleting payment records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the IPaymentService implementation to perform the necessary business logic.
+ *
+ * Base URL: /payment
+ *
+ * Example usage:
+ * GET /payment/{payCode} - Retrieves a specific payment by its payment code.
+ * GET /payment - Retrieves a list of all payments.
+ * POST /payment - Creates a new payment.
+ * PUT /payment/{payCode} - Updates an existing payment.
+ * DELETE /payment/{payCode} - Deletes a payment by its payment code.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see IPaymentService
+ * @see PaymentDTO
+ * @see Response
+ */
 @Path("/payment")
 public class PaymentRestController {
 

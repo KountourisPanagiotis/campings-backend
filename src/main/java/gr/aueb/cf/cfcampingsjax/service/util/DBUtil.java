@@ -5,13 +5,20 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * DBUtil is a utility class that provides methods to manage connections to the database.
+ * It uses Apache Commons DBCP (Database Connection Pooling) to manage connections.
+ * Retrieves the username and password from environmental variables.
+ *
+ * @author Kountouris Panagiotis.
+ */
 public class DBUtil {
 
     private final static BasicDataSource ds = new BasicDataSource();
     private static Connection conn;
 
     /**
-     * No instances of this class should be available
+     * Private constructor to prevent instantiation. No instances of this class should be available
      */
     private DBUtil(){ }
 

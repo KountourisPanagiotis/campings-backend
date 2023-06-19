@@ -10,7 +10,28 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+/**
+ * The CategoryRestController class provides REST API endpoints for managing categories.
+ * It allows retrieving, creating, updating, and deleting category records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the ICategoryService implementation to perform the necessary business logic.
+ *
+ * Base URL: /category
+ *
+ * Example usage:
+ * GET /category - Retrieves a list of all categories.
+ * GET /category/{catCode} - Retrieves a specific category by its category code.
+ * POST /category - Creates a new category.
+ * PUT /category/{catCode} - Updates an existing category.
+ * DELETE /category/{catCode} - Deletes a category by its category code.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see ICategoryService
+ * @see CategoryDTO
+ * @see Response
+ */
 @Path("/category")
 public class CategoryRestController {
     private final ICategoryService categoryService;

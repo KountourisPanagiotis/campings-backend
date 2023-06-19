@@ -9,7 +9,28 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+/**
+ * The EmplacementRestController class provides REST API endpoints for managing emplacements.
+ * It allows retrieving, creating, updating, and deleting emplacement records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the IEmplacementService implementation to perform the necessary business logic.
+ *
+ * Base URL: /emplacement
+ *
+ * Example usage:
+ * GET /emplacement/{campCode}/{empNo} - Retrieves a specific emplacement by its camp code and emp number.
+ * GET /emplacement - Retrieves a list of all emplacements.
+ * POST /emplacement - Creates a new emplacement.
+ * PUT /emplacement/{campCode}/{empNo} - Updates an existing emplacement by its camp code and emp number.
+ * DELETE /emplacement/{campCode}/{empNo} - Deletes an emplacement by its camp code and emp number.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see IEmplacementService
+ * @see EmplacementDTO
+ * @see Response
+ */
 @Path("/emplacement")
 public class EmplacementRestController {
 

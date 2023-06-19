@@ -10,7 +10,28 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+/**
+ * The BookingRestController class provides REST API endpoints for managing bookings.
+ * It allows retrieving, creating, updating, and deleting booking records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the IBookingService implementation to perform the necessary business logic.
+ *
+ * Base URL: /booking
+ *
+ * Example usage:
+ * GET /booking/{bookCode} - Retrieves a specific booking by its code.
+ * GET /booking - Retrieves a list of all bookings.
+ * POST /booking - Creates a new booking.
+ * PUT /booking/{bookCode} - Updates an existing booking.
+ * DELETE /booking/{bookCode} - Deletes a booking by its code.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see IBookingService
+ * @see BookingDTO
+ * @see Response
+ */
 @Path("/booking")
 public class BookingRestController {
 

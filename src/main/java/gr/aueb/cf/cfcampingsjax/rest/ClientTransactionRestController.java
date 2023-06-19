@@ -17,7 +17,28 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-
+/**
+ * The ClientTransactionRestController class provides REST API endpoints for managing client transactions.
+ * It allows retrieving, creating, updating, and deleting client transaction records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the IClientTransactionService implementation to perform the necessary business logic.
+ *
+ * Base URL: /transactions
+ *
+ * Example usage:
+ * GET /transactions/{bookCode} - Retrieves a specific client transaction by its book code.
+ * GET /transactions - Retrieves a list of all client transactions.
+ * POST /transactions - Creates a new client transaction.
+ * PUT /transactions - Updates an existing client transaction.
+ * DELETE /transactions/{bookCode} - Deletes a client transaction by its book code.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see IClientTransactionService
+ * @see ClientTransactionDTO
+ * @see Response
+ */
 @Path("/transactions")
 public class ClientTransactionRestController {
     private final IClientTransactionService clientTransactionService;

@@ -14,7 +14,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * The SpotrentalRestController class provides REST API endpoints for managing spot rentals.
+ * It allows retrieving, creating, updating, and deleting spot rental records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the ISpotrentalService implementation to perform the necessary business logic.
+ *
+ * Base URL: /spotrental
+ *
+ * Example usage:
+ * GET /spotrental/getByKeys?bookCode={bookCode}&campCode={campCode}&empNo={empNo}&startDt={startDt} - Retrieves a specific spot rental by its primary keys.
+ * GET /spotrental - Retrieves a list of all spot rentals.
+ * POST /spotrental - Creates a new spot rental.
+ * PUT /spotrental/{bookCode}/{campCode}/{empNo}/{startDt} - Updates an existing spot rental by its primary keys.
+ * DELETE /spotrental/{bookCode}/{campCode}/{empNo}/{startDt} - Deletes a spot rental by its primary keys.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see ISpotrentalService
+ * @see SpotrentalDTO
+ * @see Response
+ */
 @Path("/spotrental")
 public class SpotrentalRestController {
 

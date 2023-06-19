@@ -10,7 +10,28 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-
+/**
+ * The CampingRestController class provides REST API endpoints for managing campings.
+ * It allows retrieving, creating, updating, and deleting camping records.
+ * The endpoints support JSON data format for request and response payloads.
+ * This class uses JAX-RS annotations to define the API endpoints and HTTP methods.
+ * It interacts with the ICampingService implementation to perform the necessary business logic.
+ *
+ * Base URL: /camping
+ *
+ * Example usage:
+ * GET /camping - Retrieves a list of all campings.
+ * GET /camping/{campCode} - Retrieves a specific camping by its camp code.
+ * POST /camping - Creates a new camping.
+ * PUT /camping/{campCode} - Updates an existing camping.
+ * DELETE /camping/{campCode} - Deletes a camping by its camp code.
+ *
+ * Note: This class assumes the use of JSON data format for request and response payloads.
+ *
+ * @see ICampingService
+ * @see CampingDTO
+ * @see Response
+ */
 @Path("/camping")
 public class CampingRestController {
 

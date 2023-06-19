@@ -4,6 +4,11 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * CorsFilter is a web filter class that implements the javax.servlet.Filter interface.
+ * It provides Cross-Origin Resource Sharing (CORS) settings to enable web browsers to make
+ * cross-origin HTTP requests securely.
+ */
 @WebFilter("/*")
 public class CorsFilter implements Filter{
     @Override

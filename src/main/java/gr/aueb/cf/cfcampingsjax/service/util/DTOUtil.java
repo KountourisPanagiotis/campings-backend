@@ -10,6 +10,11 @@ import gr.aueb.cf.cfcampingsjax.model.Spotrental;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * DTOUtil is a utility class that provides conversion methods between DTOs (Data Transfer Objects) and models.
+ *
+ * @author Kountouris Panagiotis.
+ */
 public class DTOUtil {
 
     public static ClientTransaction convertToModel(ClientTransactionDTO clientTransactionDTO){

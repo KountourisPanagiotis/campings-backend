@@ -11,7 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *  SqlDateDeserializer is a custom JsonDeserializer class for Date objects.
+ * SqlDateDeserializer is a custom JsonDeserializer that allows conversion of
+ * JSON strings into Java Date objects.
+ *
+ * It provides a specific date format ("yyyy-MM-dd") to be used when parsing date strings.
+ *
+ * @author Kountouris Panagiotis.
  */
 public class SqlDateDeserializer extends JsonDeserializer<Date> {
 
