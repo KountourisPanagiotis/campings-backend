@@ -88,21 +88,6 @@ public class BookingDAOImpl implements IBookingsDAO {
         return new Booking(booking);
     }
 
-/*    @Override
-    public Booking updateBooking(Booking booking) {
-        try (Connection conn = DBUtil.getConnection()) {
-            PreparedStatement ps = conn.prepareStatement("UPDATE bookings SET bookDt = ?, payCode = ?, custCode = ?, staffNo = ? WHERE bookCode = ?");
-            ps.setDate(1, new java.sql.Date(booking.getBookDt().getTime()));
-            ps.setInt(2, booking.getPayCode());
-            ps.setInt(3, booking.getCustCode());
-            ps.setInt(4, booking.getStaffNo());
-            ps.setInt(5, booking.getBookCode());
-            ps.executeUpdate();
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return new Booking(booking);
-    }*/
     @Override
     public Booking updateBooking(Booking booking) {
         try (Connection conn = DBUtil.getConnection()) {

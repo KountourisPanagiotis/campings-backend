@@ -5,9 +5,17 @@ import gr.aueb.cf.cfcampingsjax.model.ClientTransaction;
 import java.util.List;
 
 /**
- * Extra functionality
+ * IClientTransactionsDAO is an interface for managing client transactions in the database.
+ * It provides a method for retrieving all client transaction records.
+ *
+ * @author Kountouris Panagiotis.
  */
 public interface IClientTransactionsDAO {
-    // Returns all client transactions
+
+    /**
+     * Retrieves all client transactions.
+     *
+     * @return List of all ClientTransaction objects from the database.
+     */
     List<ClientTransaction> getAllClientTransactions();
 }

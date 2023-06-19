@@ -21,8 +21,11 @@ public class ClientTransactionDAOImpl implements IClientTransactionsDAO {
      * Returns all the client transactions from the database.
      * We made use of this class because using the other CRUD operations
      * for each individual table and then collecting the results in service
-     * layer had high execution times.
-     * @return
+     * layer had high execution times. Optimized and reduced the times in combination
+     * with the implementation of Angular ScrollingModule at the front-end.
+     *
+     * @author Kountouris Panagiotis.
+     * @return A list of client Transactions.
      */
     @Override
     public List<ClientTransaction> getAllClientTransactions() {
