@@ -20,7 +20,7 @@ public class CustomerRestController {
         ICustomersDAO customersDAO = new CustomerDAOImpl();
         this.customerService = new CustomerServiceImpl(customersDAO);
     }
-
+    // TODO github testing
     @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
